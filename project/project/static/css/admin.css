@@ -1,0 +1,35 @@
+#header{
+    background: #5A020Cce;
+    height: 45px;
+    padding-top: 25px;
+    padding-bottom: 10px;
+}
+
+div.breadcrumbs , .module caption , #content-related .module h2{
+    background: #f14a5dce !important;
+    color:  #ffffff !important;
+}
+
+.selector-chosen h2{
+    background: #f14a5dce !important;
+    color:  #ffffff !important;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: #f14a5dce !important;
+    color:  #ffffff !important;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #f14a5dce !important;
+    color:  #ffffff !important;
+}
+
+.button:hover,
+input[type=submit]:hover,
+input[type=button]:hover,
+.submit-row input:hover,
+a.button:hover {
+    background: #ff0320ce !important;
+    color:  #ffffff !important;
+}

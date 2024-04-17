@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} My Orders {% endblock title %}
+
+{% block content %}
+
+
+<div class="my-form container p-5 my-5 rounded border border-warning">
+    <h2 class="text-center">My Orders</h2>
+    <hr>
+    <h5>
+      Full Name: {{user.first_name}} {{user.last_name}}
+      <hr>
+      Address: {{dtl.address}}
+      <hr>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Photo</th>
+          <th scope="col">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pro in productes %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{pro.product.name}}</td>
+          <td><img src="{{pro.product.photo.url}}" width="80px"></td>
+          <td>{{pro.quantity}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Favorite Itmes {% endblock title %}
+
+{% block content %}
+
+<div class="my-form container p-5 my-5 rounded border border-warning">
+    <form>
+        <h2 class="text-center">Favorite Itmes</h2>
+        <hr>
+
+        <section>
+            <div class="container-fluid">
+              <div class="row p-5" >
+                {% for product in products %}
+                <div>
+                  <div class="card m-2" style="width: 18rem;">
+                    <img src="{{product.photo.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{product.name}}</h5>
+                      <p class="card-text text-truncate">{{product.description}}</p>
+                      <a href="{% url 'Product' product.id %}" class="btn btn-warning">Show Details</a>
+                      <a type="submit" class="btn btn-danger text-white"  href="{% url 'Delet_fv' product.id %}">
+                        Delete
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+        </section>
+    
+
+    </form>
+
+</div>
+
+{% endblock content %}

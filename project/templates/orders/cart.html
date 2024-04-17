@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %} Cart {% endblock title %}
+
+{% block content %}
+
+<div class="my-form container p-5 my-5 rounded border border-warning">
+        <h2 class="text-center">Cart</h2>
+        <hr>
+        {% if total > 0 %}
+        <h5>
+
+          Full Name: {{order.user.first_name}} {{order.user.last_name}}
+        <a href="{% url 'Products' %}" class="btn btn-outline-warning float-right m-1">Shopping</a>
+        <a href="{% url 'Payment' %}" class="btn btn-outline-warning float-right m-1">Payment</a>
+          <hr>
+          Order Number: <span style="background-color: rgb(242, 255, 0);">{{order.id}}</span> with total: <span style="background-color: rgb(242, 255, 0);">{{total}}</span> All Items: <span style="background-color: rgb(242, 255, 0);">{{count}}</span>
+        </h5>
+        <hr>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product</th>
+              <th scope="col">Image</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ord in orderdetails %}
+            <tr>
+              <th scope="row">{{forloop.counter}}</th>
+              <td>{{ord.product.name}}</td>
+              <td><img src="{{ord.product.photo.url}}" width="80px"></td>
+              <td>
+                <a href="{% url 'Less' ord.id %}" class="btn btn-outline-warning btn-sm">-</a>
+                {{ord.quantity}}
+                <a href="{% url 'Addqt' ord.id %}" class="btn btn-outline-warning btn-sm">+</a>
+              </td>
+              <td>{{ord.product.price}}$</td>
+              <td>{{ord.price}}$</td>
+              <td>
+                <a href="{% url 'Remove' ord.id %}" class="btn btn-outline-danger btn-sm"> Remove</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        {% else %}
+        <h5 class="alert alert-waning">No Orders Here</h5>
+        {% endif %}
+
+</div>
+
+
+{% endblock content %}

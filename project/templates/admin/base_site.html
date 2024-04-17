@@ -1,0 +1,16 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block branding %}
+
+<a href="/admin"><h1 id="head" style="color: rgb(255, 255, 255);">
+    <img src="{% static 'img/mycoffee.png' %}" width="40px">
+    My Coffee Adminstration
+</h1></a>
+
+{% endblock %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock extrastyle %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Update Profile {% endblock title %}
+
+{% block content %}
+<div class="my-form container p-5 my-5 rounded border border-warning">
+    <h2 class="text-center">Contatc Info</h2>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        {{profile}}
+        <hr>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputUsername">First Name</label>
+            <input type="text" class="form-control" id="inputUsername" placeholder="ahmed" required value="{{user.first_name}}" name="firstname">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputUsername">Last Name</label>
+            <input type="text" class="form-control" id="inputUsername" placeholder="ahmed" required value="{{user.last_name}}" name="lastname">
+        </div>
+    </div>
+    <button class="btn btn-warning" type="submit">Save Update</button>
+</form>
+</div>
+
+{% endblock content %}
